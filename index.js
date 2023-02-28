@@ -1,12 +1,14 @@
 require('dotenv').config();
 
 const express = require('express');
+const cors = require('cors');
 const server = express({caseSensitive: false});
 const fruits = require('./fruits.json');
 const port = process.env.PORT;
 
 // middleman function between req and res
 server.use(express.json());
+server.use(cors());
 
 // home route
 server.get('/', (req, res) => {
