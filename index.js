@@ -40,7 +40,7 @@ server.get('/fruits/:name', (req, res) => {
 
 // a. check if fruit already exists in data, b. if not, use req.body to add fruit to data OR if yes, return error
 server.post('/fruits', (req, res) => {
-    const fruit = fruits.find((fruit) => fruit.name == req.body.name);
+    const fruit = fruits.find((fruit) => fruit.name.toLowerCase() == req.body.name.toLowerCase());
     
     if(fruit != undefined) {
         res.status(409).send();
